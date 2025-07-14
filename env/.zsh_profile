@@ -1,0 +1,10 @@
+export PATH=$PATH:/opt/openusd/bin:~/.config/emacs/bin
+export PYTHONPATH=${PYTHONPATH}:/opt/openusd/lib/python
+export BORG_RSH='ssh -i /home/markus/.ssh/id_rsa' 
+
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+export TERM="xterm-256color"                      # getting proper colors
+export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"

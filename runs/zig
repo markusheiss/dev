@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+git clone https://github.com/ziglang/zig.git $HOME/personal/zig
+cd $HOME/personal/zig
+
+git checkout 0.13.0
+
+mkdir build
+cd build
+cmake .. -DZIG_STATIC_LLVM=ON -DCMAKE_PREFIX_PATH=$HOME/.local/bin/llvm18
+make install
