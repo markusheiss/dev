@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+sudo apt update
+sudo apt install ninja-build gettext cmake curl build-essential
+
+# delete previous installation
+sudo -rf /usr/local/bin/nvim
+sudo rm -r /usr/local/share/nvim
+
+TMP_DIR=$(mktemp -d)
+
+cd "$TMP_DIR"
+git clone https://github.com/neovim/neovim
+git checkout stable
+cd neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+
+sudo make install
