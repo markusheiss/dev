@@ -73,14 +73,13 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-	zsh-autosuggestions
    	web-search
     	copypath
     	copyfile
+	zsh-autosuggestions
     	zsh-syntax-highlighting
 )
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -119,9 +118,6 @@ alias shutdown="sudo shutdown now"
 alias install="sudo apt install"
 alias upd="sudo apt update"
 alias upg="sudo apt upgrade"
-
-alias vim="/opt/nvim.appimage"
-alias nvim="/opt/nvim.appimage"
 
 # Changing "ls" to "exa"
 alias ls='exa -al --color=always --group-directories-first' # my preferred listing
@@ -188,3 +184,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
