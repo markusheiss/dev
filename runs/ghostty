@@ -1,10 +1,34 @@
 #!/usr/bin/env bash
 
-git clone https://github.com/ghostty-org/ghostty $HOME/personal/ghostty
-cd $HOME/personal/ghostty
-
-git checkout v1.1.3 
-
+# Dependencies
+sudo apt update
 sudo apt install libgtk-4-dev libadwaita-1-dev git blueprint-compiler gettext libxml2-utils
-zig build -Doptimize=ReleaseFast
 
+# Create a temporary directory for the build
+TMP_DIR=$(mktemp -d)
+
+ZIG_BUILD_VERSION="0.13.0"
+
+cd "$TMP_DIR"
+ZIG_URL="https://ziglang.org/download/$ZIG_BUILD_VERSION/zig-linux-x86_64-$ZIG_BUILD_VERSION.tar.xz"
+wget -q "$ZIG_URL"
+tar -xf "zig-linux-x86_64-$ZIG_BUILD_VERSION.tar.xz"
+ZIG_PATH="$TMP_DIR/zig-linux-x86_64-$ZIG_BUILD_VERSION/zig"
+
+# Verify Zig download
+$ZIG_PATH version || { echo "Zig download failed!"; exit 1; }
+
+# Define the Ghostty commit that works with Debian 12's older libraries
+# This is the commit shown in your working installation
+GHOSTTY_COMMIT="f1f11207"
+
+# Clone and checkout the specific commit
+cd "$TMP_DIR"
+git clone https://github.com/ghostty-org/ghostty.git
+cd ghostty
+git -c advice.detachedHead=false checkout "$GHOSTTY_COMMIT"
+
+sudo $ZIG_PATH build -p $HOME/.local -Doptimize=ReleaseFast
+
+# Cleanup
+sudo rm -rf "$TMP_DIR"
