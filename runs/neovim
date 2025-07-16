@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt install ninja-build gettext cmake curl build-essential
+sudo apt install -y ninja-build gettext cmake curl build-essential
 
 # delete previous installation
 sudo rm /usr/local/bin/nvim

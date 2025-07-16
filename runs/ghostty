@@ -2,7 +2,7 @@
 
 # Dependencies
 sudo apt update
-sudo apt install libgtk-4-dev libadwaita-1-dev git blueprint-compiler gettext libxml2-utils
+sudo apt install -y libgtk-4-dev libadwaita-1-dev git blueprint-compiler gettext libxml2-utils
 
 # Create a temporary directory for the build
 TMP_DIR=$(mktemp -d)

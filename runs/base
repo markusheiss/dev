@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
 sudo apt update
-sudo apt install gcc make cmake git build-essential gdb unzip ripgrep fd-find curl wget exa stow fzf tmux
+sudo apt install -y gcc make cmake git build-essential gdb unzip ripgrep fd-find curl wget exa stow fzf tmux
