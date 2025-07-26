@@ -95,6 +95,9 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='nvim'
 # fi
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+alias vim="nvim"
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -177,12 +180,14 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-# nvm - Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+. "/home/markus/.deno/env"
+# bun completions
+[ -s "/home/markus/.bun/_bun" ] && source "/home/markus/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

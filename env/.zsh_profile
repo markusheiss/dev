@@ -1,4 +1,5 @@
 export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.zig
 export BORG_RSH='ssh -i /home/markus/.ssh/id_rsa' 
 
 export GOROOT=/usr/local/go
