@@ -191,3 +191,7 @@ source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh)"
