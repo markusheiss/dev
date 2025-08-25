@@ -38,7 +38,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
 -- CUSTOM KEYMAPS --
-vim.keymap.set('i', 'jj', '<ESC>', { silent = true })
+-- vim.keymap.set('i', 'jj', '<ESC>', { silent = true })
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -58,6 +58,29 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
+vim.keymap.set({ 'n' }, '<leader>p', [["+p]])
+vim.keymap.set('n', '<leader>P', [["+P]])
+
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
+
+-- This is going to get me cancelled
+vim.keymap.set('i', '<C-c>', '<Esc>')
+
+vim.keymap.set('n', 'Q', '<nop>')
+vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
+vim.keymap.set('n', '<A-h>', '<cmd>silent !tmux-sessionizer -s 0 --vsplit<CR>')
+vim.keymap.set('n', '<A-H>', '<cmd>silent !tmux neww tmux-sessionizer -s 0<CR>')
+vim.keymap.set('n', '<leader>f', function()
+  require('conform').format { bufnr = 0 }
+end)
+
+-- vim.keymap.set('n', '<C-j>', '<cmd>cnext<CR>zz')
+-- vim.keymap.set('n', '<C-k>', '<cmd>cprev<CR>zz')
+vim.keymap.set('n', '<leader>j', '<cmd>lnext<CR>zz')
+vim.keymap.set('n', '<leader>k', '<cmd>lprev<CR>zz')
+
+vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
