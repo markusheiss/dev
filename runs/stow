@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
-sudo apt update
-sudo apt install -y stow
+if [[ "$OSTYPE" == 'linux'* ]]; then
+	sudo apt update
+	sudo apt install -y stow
+elif [[ "$OSTYPE" == 'darwin'* ]]; then
+	brew install stow
+fi
+
+mkdir $HOME/.config
 
 stow -t ~ env

@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 
-sudo apt update
-sudo apt install -y ninja-build gettext cmake curl build-essential
+
+if [[ $OSTYPE == 'linux'* ]]; then
+	sudo apt update
+	sudo apt install -y ninja-build gettext cmake curl build-essential
+elif [[ "$OSTYPE" == 'darwin'* ]]; then
+	xcode-select --install
+	brew install ninja cmake gettext curl
+fi
 
 # delete previous installation
-sudo rm /usr/local/bin/nvim
-sudo rm -r /usr/local/share/nvim
+rm /usr/local/bin/nvim
+rm -r /usr/local/share/nvim
 
 TMP_DIR=$(mktemp -d)
 

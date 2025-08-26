@@ -1,10 +1,15 @@
 #!/usr/bin/env bash
 
-sudo apt update
-sudo apt install -y zsh zplug
+if [[ $OSTYPE == 'linux'* ]]; then
+	sudo apt update
+	sudo apt install -y zsh zplug
+	# Make zsh the default shell
+	chsh -s /bin/zsh
+elif [[ "$OSTYPE" == 'darwin'* ]]; then
+	brew install zsh zplug
+	chsh -s $(which zsh)
+fi
 
-# Make zsh the default shell
-chsh -s /bin/zsh
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc

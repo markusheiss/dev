@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+if [[ $OSTYPE == 'linux'* ]]; then
 sudo apt update
 sudo apt install -y \
 	gcc \
@@ -13,7 +14,6 @@ sudo apt install -y \
 	fd-find \
 	curl \
 	wget \
-	exa \
 	fzf \
 	htop \
 	rofi \
@@ -21,3 +21,6 @@ sudo apt install -y \
 	iftop \
 	bmon \
 	tldr \
+elif [[ "$OSTYPE" == 'darwin'* ]]; then
+	brew install --cask mos
+fi
