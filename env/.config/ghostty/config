@@ -2,7 +2,7 @@
 
 theme = rose-pine-dawn
 font-family = "JetBrainsMono NFM Regular"
-font-size = 6
+font-size = 18
 confirm-close-surface=false
 
 shell-integration-features = no-cursor,no-sudo,no-title
