@@ -163,44 +163,20 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias merge='xrdb -merge ~/.Xresources'
 
 # APPLICATIONS
-# alias yt-dlp="~/.local/bin/yt-dlp --merge-output-format mp4"
 alias yt-dlp="/opt/yt-dlp"
 alias tserver="/opt/Tdarr_Updater/Tdarr_Server/Tdarr_Server"
 alias tnode="/opt/Tdarr_Updater/Tdarr_Node/Tdarr_Node"
-alias PatreonDownloader="~/.local/bin/PatreonDownloader/PatreonDownloader.App"
 
 # borg
 alias bm='borgmatic'
-alias  bme='borgmatic -c /home/markus/.config/borgmatic.d/external/'
-alias  bmes='sudo borgmatic -c /root/.config/borgmatic.d/external/'
-
-alias gitlet="node ~/personal/gitlet/gitlet.js"
-
+alias bme='borgmatic -c /home/markus/.config/borgmatic.d/external/'
+alias bmes='sudo borgmatic -c /root/.config/borgmatic.d/external/'
 
 source ~/.zsh_profile
 
-# opencode
-export PATH=$PATH:/home/markus/.opencode/bin
-
-# pnpm
-export PNPM_HOME="/home/markus/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
 source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
 . "$HOME/.atuin/bin/env"
-
 eval "$(atuin init zsh)"
 
 export NVM_DIR="$HOME/.nvm"

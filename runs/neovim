@@ -3,15 +3,15 @@
 
 if [[ $OSTYPE == 'linux'* ]]; then
 	sudo apt update
-	sudo apt install -y ninja-build gettext cmake curl build-essential
+	sudo apt install -y ninja-build gettext cmake curl wget build-essential luarocks
 elif [[ "$OSTYPE" == 'darwin'* ]]; then
 	xcode-select --install
-	brew install ninja cmake gettext curl
+	brew install ninja cmake gettext curl wget luarocks
 fi
 
 # delete previous installation
-rm /usr/local/bin/nvim
-rm -r /usr/local/share/nvim
+sudo rm /usr/local/bin/nvim
+sudo rm -r /usr/local/share/nvim
 
 TMP_DIR=$(mktemp -d)
 
